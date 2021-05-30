@@ -1,18 +1,18 @@
 [
     {
-        "title": "chapter",
+        "title": "viahavta",
         "iconName": "cog",
-        "nextScreen": "ChapterMenu"
+        "nextScreen": "Chapter"
     },
     {
-        "title": "chapter",
+        "title": "vihaya",
         "iconName": "cog",
-        "nextScreen": "SectionMenu"
+        "nextScreen": "Chapter"
     },
     {
-        "title": "playlist",
-        "iconName": "music",
-        "nextScreen": "SectionMenu"
+        "title": "vayomer",
+        "iconName": "cog",
+        "nextScreen": "Chapter"
     },
     {
         "title": "settings",

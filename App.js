@@ -103,7 +103,7 @@ class App extends React.Component {
             component={SettingsMenu}
             options={({route}) => {
               return {
-                title: strings.settingsTitle,
+                title: strings.settings,
                 headerStyle: styles.header,
                 headerTitleStyle: styles.headerText,
                 headerTitleAlign: 'center',

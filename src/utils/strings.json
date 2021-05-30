@@ -1,10 +1,14 @@
 {
-    "appName": "App",
+    "appName": "שמע",
     "chapter": "Chapter",
     "addToPlaylist": "Add To Playlist",
     "settings": "Settings",
     "playlist": "Playlists",
     "audioPrefix": "audio",
-    "audioSuffix1": "1",
-    "audioSuffix2": "2"
+    "audioSuffix1": "ashk",
+    "audioSuffix2": "seph",
+    "shema": "Shema",
+    "viahavta": "ViAhavta",
+    "vihaya": "ViHaya",
+    "vayomer": "VaYomer"
 }

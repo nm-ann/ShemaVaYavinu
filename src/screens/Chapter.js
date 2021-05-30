@@ -266,26 +266,6 @@ class Chapter extends React.Component {
 
       await this.loadFiles();
 
-      this.props.navigation.setOptions({
-        headerRight: () => (
-          <FontAwesomeButton
-            iconName="plus"
-            iconSize={20}
-            iconStyle={{paddingRight: 20}}
-            onPress={async () => {
-              if (!this.state.isPaused) {
-                this.pauseButton();
-              }
-              this.props.navigation.navigate('AddToPlaylist', {
-                collection: this.props.route.params.collection,
-                title: this.props.route.params.title,
-                chapterNum: this.props.route.params.chapterNum,
-              });
-            }}
-          />
-        ),
-      });
-
       // this.configureMusicNotif();
 
       this.setState({isLoaded: true});
@@ -405,7 +385,7 @@ class Chapter extends React.Component {
       });
     }
   }
-  
+
   componentWillUnmount() {
     Dimensions.removeEventListener('change');
   }

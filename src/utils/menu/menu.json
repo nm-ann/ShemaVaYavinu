@@ -1,18 +1,66 @@
 {
-    "section":
+    "viahavta":
         {
-            "title": "title",
+            "title": "viahavta",
+            "firstChapter": 0,
             "chapters": [
                 {
-                    "collection": "collection",
-                    "title": "Chapter",
+                    "collection": "shema",
+                    "title": "ViAhavta",
                     "chapterNum": 1
                 },
                 {
-                    "collection": "collection",
-                    "title": "Chapter",
-                    "chapterNum": 1
+                    "collection": "shema",
+                    "title": "ViHaya",
+                    "chapterNum": 2
+                },
+                {
+                    "collection": "shema",
+                    "title": "VaYomer",
+                    "chapterNum": 3
                 }
             ]
-        }
+        },
+    "vihaya": {
+        "title": "viahaya",
+        "firstChapter": 1,
+        "chapters": [
+            {
+                "collection": "shema",
+                "title": "ViAhavta",
+                "chapterNum": 1
+            },
+            {
+                "collection": "shema",
+                "title": "ViHaya",
+                "chapterNum": 2
+            },
+            {
+                "collection": "shema",
+                "title": "VaYomer",
+                "chapterNum": 3
+            }
+        ]
+    },
+    "vayomer": {
+        "title": "vayomer",
+        "firstChapter": 2,
+        "chapters": [
+            {
+                "collection": "shema",
+                "title": "ViAhavta",
+                "chapterNum": 1
+            },
+            {
+                "collection": "shema",
+                "title": "ViHaya",
+                "chapterNum": 2
+            },
+            {
+                "collection": "shema",
+                "title": "VaYomer",
+                "chapterNum": 3
+            }
+        ]
+    }
 }

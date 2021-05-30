@@ -10,76 +10,49 @@ import * as Playlist from '../utils/Playlist';
 class Menu extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      playlists: [],
-      isLoaded: false,
-    };
-
-    this.loadPlaylists = this.loadPlaylists.bind(this);
   }
 
   render() {
     return (
       <View>
-        {!this.state.isLoaded ? (
-          <ActivityIndicator size="large" />
-        ) : (
-          <FlatList
-            style={styles.container}
-            data={mainMenu.default}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={({item}) => {
-              return (
-                <FontAwesomeButton
-                  text={strings[item.title]}
-                  iconName={item.iconName}
-                  iconSize={28}
-                  iconStyle={styles.icon}
-                  buttonStyle={{...styles.button}}
-                  textStyle={styles.text}
-                  onPress={() =>
-                    this.props.navigation.navigate(item.nextScreen, {
-                      title: strings[item.title],
-                      chapterList:
-                        item.title === 'playlist'
-                          ? this.state.playlists
-                          : menuItems[item.title],
-                    })
-                  }
-                />
-              );
-            }}
-          />
-        )}
+        <FlatList
+          style={styles.container}
+          data={mainMenu.default}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({item}) => {
+            return (
+              <FontAwesomeButton
+                text={strings[item.title]}
+                iconName={item.iconName}
+                iconSize={28}
+                iconStyle={styles.icon}
+                buttonStyle={{...styles.button}}
+                textStyle={styles.text}
+                onPress={() => {
+                  const menuItem = menuItems[item.title];
+                  const firstChapter = menuItem.firstChapter;
+                  this.props.navigation.navigate(
+                    item.nextScreen,
+                    item.title === 'settings'
+                      ? {
+                        title: strings[item.title],
+                      }
+                      : {
+                          title: strings[item.title],
+                          collection:
+                            menuItem.chapters[firstChapter].collection,
+                          chapters: menuItem.chapters,
+                          chapterNum:
+                            menuItem.chapters[firstChapter].chapterNum,
+                        },
+                  )
+                }}
+              />
+            );
+          }}
+        />
       </View>
     );
-  }
-
-  componentDidMount() {
-    this.willFocusSubscription = this.props.navigation.addListener(
-      'focus',
-      () => {
-        this.loadPlaylists();
-      },
-    );
-
-    this.loadPlaylists();
-  }
-
-  loadPlaylists() {
-    Playlist.getAllPlaylists().then((playlists) => {
-      if (playlists.length === 0) {
-        playlists = [];
-      }
-      this.setState({
-        playlists: playlists,
-        isLoaded: true,
-      });
-    });
-  }
-
-  componentWillUnmount() {
-    this.willFocusSubscription();
   }
 }
 
