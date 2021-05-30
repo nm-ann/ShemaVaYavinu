@@ -30,7 +30,6 @@ class Menu extends React.Component {
                 textStyle={styles.text}
                 onPress={() => {
                   const menuItem = menuItems[item.title];
-                  const firstChapter = menuItem.firstChapter;
                   this.props.navigation.navigate(
                     item.nextScreen,
                     item.title === 'settings'
@@ -40,10 +39,10 @@ class Menu extends React.Component {
                       : {
                           title: strings[item.title],
                           collection:
-                            menuItem.chapters[firstChapter].collection,
+                            menuItem.chapters[menuItem.firstChapter].collection,
                           chapters: menuItem.chapters,
                           chapterNum:
-                            menuItem.chapters[firstChapter].chapterNum,
+                            menuItem.chapters[menuItem.firstChapter].chapterNum,
                         },
                   )
                 }}
@@ -62,10 +61,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     justifyContent: 'flex-start',
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.tertiary,
   },
   icon: {
-    backgroundColor: colors.tertiary,
+    backgroundColor: colors.tertiaryDark,
     color: colors.secondary,
     borderRadius: 50,
     width: 50,
@@ -74,7 +73,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   text: {
-    color: colors.tertiary,
+    color: colors.secondary,
     fontSize: 25,
     fontWeight: 'bold',
   },

@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   settingsCard: {
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.primary,
     marginTop: 10,
     shadowColor: 'rgba(0,0,0, .4)', // IOS
     shadowOffset: {height: 1, width: 1}, // IOS
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
   },
   buttonSelected: {
-    backgroundColor: colors.primary,
+    backgroundColor: colors.tertiary,
   },
   buttonDeselected: {
     backgroundColor: colors.tertiaryDark,

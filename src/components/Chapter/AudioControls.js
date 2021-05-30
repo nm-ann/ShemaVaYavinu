@@ -22,7 +22,7 @@ class AudioControls extends React.Component {
       <View style={{ ...styles.audioControlContainer, ...orientationStyle }}>
         <MaterialButton
           text={this.props.speed.toString() + 'x'}
-          textStyle={{ color: colors.tertiary, fontWeight: 'bold' }}
+          textStyle={{ color: colors.secondary, fontWeight: 'bold' }}
           onPress={async () => {
             let newSpeed = this.props.speed + this.speedIncrement;
             if (newSpeed > this.maxSpeed) {
@@ -37,7 +37,7 @@ class AudioControls extends React.Component {
           iconSize={this.props.isPortrait ? 40 : 30}
           onPress={this.props.onBackward}
           buttonStyle={this.props.isPortrait ? { width: 80 } : { width: 60 }}
-          iconStyle={{ color: colors.tertiary }}
+          iconStyle={{ color: colors.secondary }}
         />
         <FontAwesomeButton
           iconName={this.props.paused ? 'play-circle' : 'pause-circle'}
@@ -51,7 +51,7 @@ class AudioControls extends React.Component {
           iconSize={this.props.isPortrait ? 40 : 30}
           onPress={this.props.onForward}
           buttonStyle={this.props.isPortrait ? { width: 80 } : { width: 60 }}
-          iconStyle={{ color: colors.tertiary }}
+          iconStyle={{ color: colors.secondary }}
         />
         <MaterialButton
           iconName={this.props.shouldRepeat ? 'repeat' : 'repeat-off'}
@@ -67,8 +67,8 @@ class AudioControls extends React.Component {
           buttonStyle={this.props.isPortrait ? { width: 40 } : { width: 60 }}
           iconStyle={
             this.props.shouldRepeat
-              ? { color: colors.tertiary }
-              : { color: colors.secondary }
+              ? { color: colors.secondary }
+              : { color: colors.tertiaryDark }
           }
         />
       </View>
