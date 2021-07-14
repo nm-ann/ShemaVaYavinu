@@ -20,31 +20,36 @@ class Menu extends React.Component {
           data={mainMenu.default}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item}) => {
-            return (
+            return item.title === 'settings' ? (
               <FontAwesomeButton
                 text={strings[item.title]}
                 iconName={item.iconName}
                 iconSize={28}
                 iconStyle={styles.icon}
-                buttonStyle={{...styles.button}}
+                buttonStyle={{...styles.settingsButton}}
                 textStyle={styles.text}
                 onPress={() => {
                   const menuItem = menuItems[item.title];
-                  this.props.navigation.navigate(
-                    item.nextScreen,
-                    item.title === 'settings'
-                      ? {
-                        title: strings[item.title],
-                      }
-                      : {
-                          title: strings[item.title],
-                          collection:
-                            menuItem.chapters[menuItem.firstChapter].collection,
-                          chapters: menuItem.chapters,
-                          chapterNum:
-                            menuItem.chapters[menuItem.firstChapter].chapterNum,
-                        },
-                  )
+                  this.props.navigation.navigate(item.nextScreen, {
+                    title: strings[item.title],
+                  });
+                }}
+              />
+            ) : (
+              <FontAwesomeButton
+                text={strings[item.title]}
+                buttonStyle={{...styles.chapterButton}}
+                textStyle={styles.text}
+                onPress={() => {
+                  const menuItem = menuItems[item.title];
+                  this.props.navigation.navigate(item.nextScreen, {
+                    title: strings[item.title],
+                    collection:
+                      menuItem.chapters[menuItem.firstChapter].collection,
+                    chapters: menuItem.chapters,
+                    chapterNum:
+                      menuItem.chapters[menuItem.firstChapter].chapterNum,
+                  });
                 }}
               />
             );
@@ -57,7 +62,13 @@ class Menu extends React.Component {
 
 const styles = StyleSheet.create({
   container: {},
-  button: {
+  chapterButton: {
+    marginTop: 10,
+    marginBottom: 10,
+    justifyContent: 'center',
+    backgroundColor: colors.tertiary,
+  },
+  settingsButton: {
     marginTop: 10,
     marginBottom: 10,
     justifyContent: 'flex-start',
