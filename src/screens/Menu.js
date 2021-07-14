@@ -23,10 +23,7 @@ class Menu extends React.Component {
             return item.title === 'settings' ? (
               <FontAwesomeButton
                 text={strings[item.title]}
-                iconName={item.iconName}
-                iconSize={28}
-                iconStyle={styles.icon}
-                buttonStyle={{...styles.settingsButton}}
+                buttonStyle={{...styles.button}}
                 textStyle={styles.text}
                 onPress={() => {
                   const menuItem = menuItems[item.title];
@@ -38,7 +35,7 @@ class Menu extends React.Component {
             ) : (
               <FontAwesomeButton
                 text={strings[item.title]}
-                buttonStyle={{...styles.chapterButton}}
+                buttonStyle={{...styles.button}}
                 textStyle={styles.text}
                 onPress={() => {
                   const menuItem = menuItems[item.title];
@@ -62,16 +59,10 @@ class Menu extends React.Component {
 
 const styles = StyleSheet.create({
   container: {},
-  chapterButton: {
+  button: {
     marginTop: 10,
     marginBottom: 10,
     justifyContent: 'center',
-    backgroundColor: colors.tertiary,
-  },
-  settingsButton: {
-    marginTop: 10,
-    marginBottom: 10,
-    justifyContent: 'flex-start',
     backgroundColor: colors.tertiary,
   },
   icon: {
