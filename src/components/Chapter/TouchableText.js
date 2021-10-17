@@ -19,7 +19,8 @@ class TouchableText extends React.Component {
             styles.text,
             this.props.style,
           ]}>
-          {this.props.lineNum + ': ' + this.props.text}
+          {/* {this.props.lineNum + ': ' + this.props.text} */}
+          {this.props.text}
         </Text>
       </TouchableOpacity>
     );
